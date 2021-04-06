@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ALBUMS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>ALBUMS</h1>
+
+    <ul>
+        <a href="/">splash page</a>
+        <a href="/albums">albums</a>
+        <a href="/hello">hello world</a>
+        <a href="/capitalize/enter your word here">capitalized</a>
+    </ul>
+
+
+    <div
+            th:each="album : ${albumArray}"> <!--${albumArray} matches the attNr. name from GetMap/addAttr.-->
+        <img th:src="@{${album.imageURL}}" alt="album cover">
+        <li th:text="${album.title}"></li>
+        <li th:text="${album.artist}"></li>
+        <li th:text="${album.songCount}"> Songs on the album</li>
+        <li th:text="${album.length}"> Seconds long</li>
+    </div>
+
+<!--<ul>-->
+<!--    <img th:src="@{${library.imageURL}}" alt="album cover">-->
+<!--    <li th:text="${library.title}"></li>-->
+<!--    <li th:text="${library.artist}"></li>-->
+<!--    <li th:text="${library.songCount}"></li>-->
+<!--    <li th:text="${library.length}"></li>-->
+<!--</ul>-->
+
+</body>
+</html>

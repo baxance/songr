@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>capitalize</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<ul>
+    <a href="/">splash page</a>
+    <a href="/albums">albums</a>
+    <a href="/hello">hello world</a>
+    <a href="/capitalize/enter your word here">capitalized</a>
+</ul>
+
+<h1 th:text="${word.toUpperCase()}"></h1>
+
+</body>
+</html>
