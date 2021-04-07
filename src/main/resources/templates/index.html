@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Splash Page</title>
@@ -14,6 +14,23 @@
         <a href="/hello">hello world</a>
         <a href="/capitalize/enter your word here">capitalized</a>
     </ul>
+
+    <form th:action="'/albums' + '?_method=save'" method="POST">
+        <fieldset>
+            <legend>Add an Album</legend>
+            <label for="imageURL">Image URL</label>
+            <input type="text" name="imageURL">
+            <label for="title">Title</label>
+            <input type="text" name="title">
+            <label for="artist">artist</label>
+            <input type="text" name="artist">
+            <label for="songCount">song count</label>
+            <input type="text" name="songCount">
+            <label for="length">length</label>
+            <input type="text" name="length">
+            <input type="submit" value="SAVE ALBUM">
+        </fieldset>
+    </form>
 
 </body>
 </html>
