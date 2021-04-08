@@ -1,9 +1,7 @@
 package com.baxance.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -12,7 +10,12 @@ public class Album {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    String title;
+    @Column(columnDefinition = "TEXT")
+    public String title;
+
+    @OneToMany(mappedBy ="songOf", cascade = CascadeType.ALL)
+    public List<Song> songs;
+
     String artist;
     int songCount;
     int length;
@@ -32,49 +35,53 @@ public long getId() {
     return id;
 }
 
-//public void setId(long id) {
-//    this.id = id;
-//}
+public void setId(long id) {
+    this.id = id;
+}
 
 public String getTitle(){ // <- getter
     return title;
 }
 
-//public void setTitle(String title) {
-//    this.title = title;
-//}
+public void setTitle(String title) {
+    this.title = title;
+}
 
 public String getArtist(){
     return artist;
 }
 
-//public void setArtist(String artist) {
-//    this.artist = artist;
-//}
+public void setArtist(String artist) {
+    this.artist = artist;
+}
 
 public int getSongCount(){
     return songCount;
 }
 
-//public void setSongCount(int songCount) {
-//    this.songCount = songCount;
-//}
+public void setSongCount(int songCount) {
+    this.songCount = songCount;
+}
 
 public int getLength(){
     return length;
 }
 
-//public void setLength(int length) {
-//    this.length = length;
-//}
+public List<Song> getSongs() {
+    return songs;
+}
+
+public void setLength(int length) {
+    this.length = length;
+}
 
 public String getImageURL(){
     return imageURL;
 }
 
-//public void setImageURL(String imageURL) {
-//    this.imageURL = imageURL;
-//}
+public void setImageURL(String imageURL) {
+    this.imageURL = imageURL;
+}
 
 }
 

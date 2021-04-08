@@ -11,8 +11,6 @@
     <ul>
         <a href="/">splash page</a>
         <a href="/albums">albums</a>
-        <a href="/hello">hello world</a>
-        <a href="/capitalize/enter your word here">capitalized</a>
     </ul>
 
 
@@ -24,37 +22,15 @@
         <li th:text="${album.songCount}"> Songs on the album</li>
         <li th:text="${album.length}"> Seconds long</li>
 
-<!--        <form th:action="'/albums' + ${album.id} + '?_method=update'" method="PUT">-->
-<!--            <fieldset>-->
-<!--                <legend>Update Album</legend>-->
-<!--                <label for="id"></label>-->
-<!--                <input type="text" hidden name="id" value="${album.id}">-->
-<!--                <label for="imageURL">Image URL</label>-->
-<!--                <input type="text" name="imageURL">-->
-<!--                <label for="title">Title</label>-->
-<!--                <input type="text" name="title">-->
-<!--                <label for="artist">artist</label>-->
-<!--                <input type="text" name="artist">-->
-<!--                <label for="songCount">song count</label>-->
-<!--                <input type="text" name="songCount">-->
-<!--                <label for="length">length</label>-->
-<!--                <input type="text" name="length">-->
-<!--                <input type="submit" value="Update Album">-->
-<!--            </fieldset>-->
-<!--        </form>-->
+        <form th:action="'/songs/' + ${album.id}" method="GET">
+            <input type="submit" value="Add Tracks to Album">
+        </form>
 
         <form th:action="'/albums/' + ${album.id} + '?_method=delete'" method="POST">
             <input type="submit" value="Delete Album">
         </form>
     </div>
 
-<!--<ul>-->
-<!--    <img th:src="@{${library.imageURL}}" alt="album cover">-->
-<!--    <li th:text="${library.title}"></li>-->
-<!--    <li th:text="${library.artist}"></li>-->
-<!--    <li th:text="${library.songCount}"></li>-->
-<!--    <li th:text="${library.length}"></li>-->
-<!--</ul>-->
 
 </body>
 </html>
